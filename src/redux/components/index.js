@@ -6,7 +6,8 @@ export default class NewIndex extends React.Component {
         super();
         this.state  = {
             newsItem: [],
-            style:[]
+            style: [],
+            url:""
         };
     };
     componentWillMount() {
@@ -17,21 +18,24 @@ export default class NewIndex extends React.Component {
         .then((response) => response.json())
         .then((json)=>{
             this.setState({
-                newsItem:json
+                newsItem:json,
+                url:json[0].style[0].url
             })
         })
     };
-    renderColor = (color) => (color.map((value,index)=><div key={index}>{value.color}</div>))
-    renderSize = (color) => (color.map((value,index)=><div key={index}>{value.size}</div>))
-
+    
+    renderColor = (color) => (color.map((value,index)=> <li key={index} onClick={(e) => this.changeStyle(value,e)} >{value.color}</li>))
+    renderSize = (color) => (color.map((value,index)=><li key={index}>{value.size}</li>))
+    changeStyle(value, event) {
+        this.setState({url:value.url})
+    }
     render(){
-        const {newsItem} =this.state
-        // console.log(newsItem[0]?);
+        const {newsItem,url} =this.state
         const newsList = newsItem.length
         ? newsItem.map((Item, index) => (
             <div key={index} className="mainWrapper">
                 <div className="gellery">
-                    <img src={Item.activeStyleUrl} />
+                    <img src={url} />
                 </div>
                 <div className="container">
                     <div className="title">
@@ -60,7 +64,6 @@ export default class NewIndex extends React.Component {
             <div className="cartContainer">
              {newsList}
                 <div className="container">
-                        
                         <div className="shopCart">加入购物车</div>
                 </div> 
             </div>
