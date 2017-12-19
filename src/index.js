@@ -1,34 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import {
-    HashRouter as Router,
-	Route,
-	Switch
-} from 'react-router-dom';
-import Address from './redux/components/address';
-import ShopCart from './redux/components/shopCart';
-import NewIndex from './redux/components/index';
-import Header from './redux/components/header';
+    createStore
+} from 'redux';
 
+import {
+    Provider
+} from 'react-redux';
+import App from './App.js';
+import changeMnunt from './redux/reducers/index.js'
+let store =createStore(changeMnunt);
 
-export default class Root extends React.Component{
+export default class Root extends React.Component {
     render() {
-        return(
-            <Router>
-                <div className="app">
-                    <Header/>
-                    <Switch>
-                        <Route exact path='/NewIndex' Component={NewIndex}/>
-                        <Route path='/ShopCart' Component={ShopCart}/>
-                        <Route path='/Address' Component={Address}/>
-                    </Switch>
-                    <NewIndex/>
-                </div> 
-            </Router>
+        return (
+            <Provider store={store}>
+                <App />
+            </Provider>
         )
     }
 }
 ReactDOM.render(
     <Root />,
     document.getElementById('root')
-);
+)
