@@ -4,14 +4,27 @@ import CarItem from './carItem'
 import {
     connect
 } from 'react-redux';
+
 class ShopCart extends React.Component{
+    constructor(props){
+        super(props);
+        this.state={
+            AmountMoney:0,
+        }
+    }
+    f(){
+        let AmountMoney = 0;
+        for(let i in this.props.totalPrice){
+            AmountMoney += this.props.totalPrice[i].money;
+        }
+        return AmountMoney;
+    }
     render() {
-        console.log(this.props.selectCart);
         return (
             <div className="cartWrapper">
                 <div className="cart-heading">
                     <span className="headcart">购物车</span>
-                    <span className="pull-right"><strong>总计:</strong></span>
+                    <span className="pull-right"><strong>总计:{ this.f() }</strong></span>
                 </div>
                 <CarItem></CarItem>
                 <div className="footer-btn">
@@ -25,7 +38,7 @@ class ShopCart extends React.Component{
 }
 const mapStateToProps = state => {
     return {
-        selectCart: state.selectCart
+        totalPrice: state.selectCart
     }
   }
 export default connect(

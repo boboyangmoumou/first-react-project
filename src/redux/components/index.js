@@ -23,6 +23,7 @@ class NewIndex extends React.Component {
             newColor:'',
             selectCart:[]
         };
+        console.log(123456789);
     };
     componentWillMount() {
         fetch("./data.json",{
@@ -32,8 +33,10 @@ class NewIndex extends React.Component {
             this.setState({
                 newsItem:json,
                 url:json[0].style[0].url,
+                newColor:json[0].style[0].color,
                 money:json[0].price,
                 count:1,
+
             })
         }) 
     };
@@ -72,14 +75,12 @@ class NewIndex extends React.Component {
             newSize,
             newColor
         }
-        this.setState({
-            selectCart:cartInfo
-        })
+        // this.setState({
+        //     selectCart:cartInfo
+        // })
         onTodoClick(cartInfo)
-        //this.props.dispatch(addShopcart());
     }
     render(){
-        //console.log(this.props.hhhhh)
         const {newsItem,url,money,count,newSize,newColor,selectCart} =this.state
         const newsList = newsItem.length
         ? newsItem.map((Item, index) => (
@@ -111,7 +112,7 @@ class NewIndex extends React.Component {
                             {this.renderSize(Item.storage)}
                         </div>
                     </div>
-                    <div className="shopCart btn btn-block" onClick={(e) => this.addShopcart(money,count,newSize,newColor,e)}>加入购物车</div>
+                    <div className="shopCart btn btn-block" style={newColor&&newSize?{background:'#666'}:{background:"red"}} onClick={(e) => this.addShopcart(money,count,newSize,newColor,e)}>加入购物车</div>
                 </div>
             </div>
         ))

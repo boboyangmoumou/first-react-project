@@ -1,0 +1,148 @@
+.address{
+    width: 1000px;
+    margin: 0 auto;
+}
+.check-step{
+    padding: 5px 0;   
+}
+.check-step ul{
+    display: flex;
+    flex-direction:row;
+    margin:25px 0 50px 0;
+}
+.check-step ul li{
+    flex:1;
+    text-align: center;
+    position: relative;
+    padding: 10px;
+    border-bottom: 2px solid #ccc;
+    font-size: 16px;
+}
+.current{
+    border-color: #ee7a23;
+    color: #ee7a23;
+}
+.current:after{
+    background: #ee7a23;
+}
+.check-step ul li:after{
+    position: absolute;
+    bottom: -7px;
+    left: 50%;
+    margin-left: -7px;
+    content: "";
+    width: 14px;
+    height: 14px;
+    border-radius:50%;
+    background: #ccc;
+}
+.checkout-title{
+    position: relative;
+    margin-bottom:40px;
+    text-align:center;
+}
+.checkout-title span{
+    position: relative;
+    padding: 8px;
+    background-color: #fff;
+    font-family: "moderat";
+    font-weight: bold;
+    font-size: 20px;
+    color: #655f5f;
+    z-index:1;
+}
+.checkout-title:before{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    content: "";
+    height: 1px;
+    background: #ccc;
+    z-index: 0;
+    width: 100%;
+}
+.address-list-wrap{
+    min-height: 300px;
+    padding-bottom: 40px;
+}
+.address-list-wrap ul{
+    display: flex;
+    display: -ms-flexbox;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.address-list-wrap ul li{
+    position: relative;
+    display: inline-block;
+    height: 92px;
+    overflow: hidden;
+    margin: 10px 2% 10px 19px;
+    padding: 20px 20px 40px 20px;
+    background-color: #fff;
+    border: 2px solid #e9e9e9;
+    cursor: pointer;
+    width: 25%;
+}
+.list-rect{
+    display: flex;
+    flex-direction:column;
+}
+.list-rect span{
+    padding: 8px;
+    color: #605f5f;
+    font-size: 16px;
+    font-family: "微软雅黑";
+}
+.list-rect span:first-child{
+    font-size: 20px;
+    padding: 0 8px 8px 8px;
+}
+.list-rect span:first-child{
+    padding: 6px 8px 8px 8px;
+}
+.addressOption{
+    position: absolute;
+    right: 20px;
+    top: 25px;
+    height: 20px;
+    width: 20px;
+}
+.addressOption .icon-pencil{
+    color: #333;
+}
+.addressOption .icon-pencil:hover{
+    color: #EE7A23;
+}
+.addressdetele{
+    position: absolute;
+    right: 20px;
+    bottom: 14px;
+    height: 20px;
+    width: 20px;
+}
+.addressdetele .icon-bin{
+    color: #333;
+}
+.addressdetele .icon-bin:hover{
+    color: #EE7A23;
+}
+
+.add-new-inner{
+    padding-top: 20px;
+    text-align: center;
+}
+.add-new-inner .icon-plus{
+    font-size: 40px;
+    color: #605f5f;
+}
+.add-new-inner p{
+    margin-top: 10px;
+}
+.add-more{
+    margin-top: 10px;
+    text-align: center;
+}
+.add-more a{
+    color: #EE7A23;
+    text-decoration: none;
+}
